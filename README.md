@@ -6,3 +6,6 @@ e.g. Matrices, Fibonacci, Sorting etc. I also try to do Unit tests for all class
 Below List of recently resolved:
 
 * Matrices - creating and all posible operations.
+* Static class with various operations:
+	* Mertens Function
+	* Mobius Function (needed for Mertens)
