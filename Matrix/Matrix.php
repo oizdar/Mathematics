@@ -1,6 +1,6 @@
 <?php
 
-namespace Task;
+namespace Math;
 
 class Matrix
 {
@@ -78,7 +78,7 @@ class Matrix
             return new Matrix($newMatrix);
         }
         throw new Exception('Can add only same size Matrices');
-        
+
     }
     private function isSameSize(Matrix $matrix, Matrix $matrix2) : bool
     {
@@ -103,7 +103,7 @@ class Matrix
             return new Matrix($newMatrix);
         }
         throw new Exception('Can substract only same size Matrices');
-        
+
     }
 
     public function multiply($multiplier) : Matrix
@@ -212,7 +212,7 @@ class Matrix
             }
         }
         throw new Exception('Cannot calculate determinant. Matrix must be a square type.');
-        
+
     }
 
     private function getSubMatrixMap(

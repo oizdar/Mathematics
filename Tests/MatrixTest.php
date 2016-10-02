@@ -1,9 +1,9 @@
 <?php
-namespace Task\Tests;
+namespace Math\Tests;
 
-require('Matrix.php');
+require('../Matrix/Matrix.php');
 use PHPUnit\Framework\TestCase;
-use \Task\Matrix;
+use \Math\Matrix;
 
 class MatrixTest extends TestCase
 {
@@ -38,7 +38,7 @@ class MatrixTest extends TestCase
     public function testCreateMatrix()
     {
         $matrix = new Matrix();
-        $this->AssertInstanceOf('\Task\Matrix', $matrix);
+        $this->AssertInstanceOf('\Math\Matrix', $matrix);
     }
 
     public function testToString()

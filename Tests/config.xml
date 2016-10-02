@@ -22,10 +22,10 @@
      verbose="false"
     >
 <testsuites>
-    <testsuite name="Matrix">
+    <testsuite name="Math">
         <directory>/home/radek/Documents/matrix/tests</directory>
     </testsuite>
-    <testsuite name="Matrix">
+    <testsuite name="Math">
         <directory>/home/radek/Documents/matrix/tests/directory>
     </testsuite>
 </testsuites>
