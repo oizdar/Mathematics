@@ -48,4 +48,13 @@ class OperationsTest extends TestCase
         $this->assertEquals(3, Operations::mertensFunction(344));
         $this->assertEquals(-23, Operations::mertensFunction(10000));
     }
+
+    public function testRPN()
+    {
+        $this->assertEquals(14, Operations::ReversePolishNotation('5 1 2 + 4 * + 3 -'));
+        $this->assertEquals(14, Operations::ReversePolishNotation('6 3 / 2 5 + *'));
+        $this->assertEquals(-35, Operations::ReversePolishNotation('2 1 + 3 * 4 7 4 + * -'));
+        $this->assertEquals(18.75, Operations::ReversePolishNotation('2,5 3 2.5 * *'));
+        $this->assertEquals(3, Operations::ReversePolishNotation('3,3333 1.1111 /'));
+    }
 }

@@ -84,7 +84,7 @@ class Operations
      *                          primary factors
      *          integer         Count of repeated primary factors
      */
-    private static function checkRepeatedFactors($array)
+    private static function checkRepeatedFactors(array $array)
     {
         $arrCount = count($array);
         if ($arrCount === 1) {
@@ -103,5 +103,39 @@ class Operations
         }
         return false;
 
+    }
+
+    public static function ReversePolishNotation(string $expression) : float
+    {
+        $stack = [];
+        $strLength = strlen($expression);
+
+        for ($i = 0; $i < $strLength; $i++) {
+            $value = '';
+            while (isset($expression[$i]) && $expression[$i] === '') {
+                $i++;
+            };
+            if(isset($expression[$i]) && preg_match('/[+\-*\/]/', $expression[$i])) {
+                $b = array_pop($stack);
+                $a = array_pop($stack);
+                $stack[] = eval("return $a $expression[$i] $b;");
+                $i++;
+            };
+
+            while (isset($expression[$i]) && preg_match('/[0-9\.,]/', $expression[$i])) {
+                switch ($expression[$i]) {
+                    case '.':
+                    case ',': //in Polish notation floats are written with comma
+                        $value .= '.';
+                        break;
+                    default: 
+                        $value .= $expression[$i];
+                        break;
+                };
+                $i++;
+            };
+            (!empty($value)) ? $stack[] = $value : null;
+        };
+        return $stack[0];
     }
 }
