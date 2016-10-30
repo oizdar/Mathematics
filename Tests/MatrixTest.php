@@ -2,10 +2,9 @@
 namespace Math\Tests;
 
 require('../Matrix/Matrix.php');
-use PHPUnit\Framework\TestCase;
 use \Math\Matrix;
 
-class MatrixTest extends TestCase
+class MatrixTest extends \PHPUnit_Framework_TestCase
 {
 
     public function setUp()

@@ -3,10 +3,11 @@
 namespace Math\Tests;
 
 require('../Operations/Operations.php');
+
 use PHPUnit\Framework\TestCase;
 use \Math\Operations;
 
-class OperationsTest extends TestCase
+class OperationsTest extends \PHPUnit_Framework_TestCase
 {
     public function testMobius()
     {
@@ -14,9 +15,9 @@ class OperationsTest extends TestCase
         $this->assertEquals(0, Operations::mobiusFunction(44));
         $this->assertEquals(0, Operations::mobiusFunction(98));
         $this->assertEquals(0, Operations::mobiusFunction(136));
-        $this->assertEquals(0, Operations::mobiusFunction(156));   
+        $this->assertEquals(0, Operations::mobiusFunction(156));
     }
-    
+
     public function testMobiusPlus()
     {
         $this->assertEquals(1, Operations::mobiusFunction(1));
@@ -28,7 +29,7 @@ class OperationsTest extends TestCase
 
     public function testMobiusMinus()
     {
-        $this->assertEquals(-1, Operations::mobiusFunction(3)); 
+        $this->assertEquals(-1, Operations::mobiusFunction(3));
         $this->assertEquals(-1, Operations::mobiusFunction(23));
         $this->assertEquals(-1, Operations::mobiusFunction(78));
         $this->assertEquals(-1, Operations::mobiusFunction(157));
@@ -51,10 +52,18 @@ class OperationsTest extends TestCase
 
     public function testRPN()
     {
-        $this->assertEquals(14, Operations::ReversePolishNotation('5 1 2 + 4 * + 3 -'));
-        $this->assertEquals(14, Operations::ReversePolishNotation('6 3 / 2 5 + *'));
-        $this->assertEquals(-35, Operations::ReversePolishNotation('2 1 + 3 * 4 7 4 + * -'));
-        $this->assertEquals(18.75, Operations::ReversePolishNotation('2,5 3 2.5 * *'));
-        $this->assertEquals(3, Operations::ReversePolishNotation('3,3333 1.1111 /'));
+        $this->assertEquals(14, Operations::reversePolishNotation('5 1 2 + 4 * + 3 -'));
+        $this->assertEquals(14, Operations::reversePolishNotation('6 3 / 2 5 + *'));
+        $this->assertEquals(-35, Operations::reversePolishNotation('2 1 + 3 * 4 7 4 + * -'));
+        $this->assertEquals(18.75, Operations::reversePolishNotation('2,5 3 2.5 * *'));
+        $this->assertEquals(3, Operations::reversePolishNotation('3,3333 1.1111 /'));
+    }
+
+    public function testFibonacci()
+    {
+        $this->assertEquals(0, Operations::fibonacci(0));
+        $this->assertEquals(1, Operations::fibonacci(1));
+        $this->assertEquals('4181', Operations::fibonacci(19));
+        $this->assertEquals(7540113804746346429, Operations::fibonacci(92));
     }
 }

@@ -12,14 +12,14 @@ class Operations
     /**
      * Mertens Function described e.g.
      * url: http://mathworld.wolfram.com/MertensFunction.html
-     * 
+     *
      * @return int
      */
 
     public static function mertensFunction(int $n) : int
     {
         $result = 0;
-        for($i = 1; $i <= $n; $i++) {
+        for ($i = 1; $i <= $n; $i++) {
             $result += static::mobiusFunction($i);
         }
         return $result;
@@ -29,11 +29,11 @@ class Operations
      * Mobius Function described e.g.
      * url: http://mathworld.wolfram.com/MoebiusFunction.html
      *
-     * @return int {1 | 0 | -1} 
+     * @return int {1 | 0 | -1}
      */
     public static function mobiusFunction(int $n) : int
     {
-        if($n === 1) {
+        if ($n === 1) {
             return 1;
         } else {
             $array = static::primaryFactors($n);
@@ -42,14 +42,14 @@ class Operations
             if ($count === true || $count === false) {
                 return (-1)**$arrCount;
             }
-            if(is_int($count)) {
-                if($count === $arrCount) {
+            if (is_int($count)) {
+                if ($count === $arrCount) {
                     return 0;
-                } 
+                }
                 if ($count > 0) {
                     return 0;
                 }
-            } 
+            }
             return 1;
         }
     }
@@ -62,7 +62,7 @@ class Operations
     public static function primaryFactors(int $number) : array
     {
         $list = [];
-        if($number !== 1) {
+        if ($number !== 1) {
             $factor = 2;
             while ($number % $factor !== 0) {
                 $factor++; //starts from 2
@@ -80,7 +80,7 @@ class Operations
      * Checks are primary factors reapeating.
      * Returns boolean or integer value
      *  @return boolean  true   If it is one primary factor
-     *          boolean  false  If there are more than one 
+     *          boolean  false  If there are more than one
      *                          primary factors
      *          integer         Count of repeated primary factors
      */
@@ -92,20 +92,20 @@ class Operations
         }
         for ($i = 0; $i < $arrCount; $i++) {
             $count = 0;
-            for($j = 0; $j < $arrCount; $j++) {
+            for ($j = 0; $j < $arrCount; $j++) {
                 if ($i !== $j && $array[$i] === $array[$j]) {
                     $count++;
                 }
-            }  
-            if($count > 0) {
-                return $count++;    
+            }
+            if ($count > 0) {
+                return $count++;
             }
         }
         return false;
 
     }
 
-    public static function ReversePolishNotation(string $expression) : float
+    public static function reversePolishNotation(string $expression) : float
     {
         $stack = [];
         $strLength = strlen($expression);
@@ -115,7 +115,7 @@ class Operations
             while (isset($expression[$i]) && $expression[$i] === '') {
                 $i++;
             };
-            if(isset($expression[$i]) && preg_match('/[+\-*\/]/', $expression[$i])) {
+            if (isset($expression[$i]) && preg_match('/[+\-*\/]/', $expression[$i])) {
                 $b = array_pop($stack);
                 $a = array_pop($stack);
                 $stack[] = eval("return $a $expression[$i] $b;");
@@ -128,7 +128,7 @@ class Operations
                     case ',': //in Polish notation floats are written with comma
                         $value .= '.';
                         break;
-                    default: 
+                    default:
                         $value .= $expression[$i];
                         break;
                 };
@@ -137,5 +137,19 @@ class Operations
             (!empty($value)) ? $stack[] = $value : null;
         };
         return $stack[0];
+    }
+
+    public function fibonacci(int $n) : int
+    {
+        for ($i=0; $i <= $n; $i++) {
+            if ($i == 0) {
+                $result[] = 0;
+            } elseif ($i === 1) {
+                $result[] = 1;
+            } else {
+                $result[] = $result[$i-1] + $result[$i-2];
+            }
+        }
+        return (int)$result[$n];
     }
 }
