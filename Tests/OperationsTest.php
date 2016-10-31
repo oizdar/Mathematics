@@ -59,11 +59,18 @@ class OperationsTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(3, Operations::reversePolishNotation('3,3333 1.1111 /'));
     }
 
+    public function testFactorial()
+    {
+        $this->assertEquals(1, Operations::factorial(1));
+        $this->assertEquals(120, Operations::factorial(5));
+        $this->assertEquals(3628800, Operations::factorial(10));
+    }
+
     public function testFibonacci()
     {
         $this->assertEquals(0, Operations::fibonacci(0));
         $this->assertEquals(1, Operations::fibonacci(1));
-        $this->assertEquals('4181', Operations::fibonacci(19));
+        $this->assertEquals(4181, Operations::fibonacci(19));
         $this->assertEquals(7540113804746346429, Operations::fibonacci(92));
     }
 }

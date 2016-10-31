@@ -139,6 +139,19 @@ class Operations
         return $stack[0];
     }
 
+    public function factorial(int $n) : int
+    {
+        if ($n === 1) {
+            return 1;
+        }
+        return $n * self::factorial($n-1);
+    }
+
+    /**
+     * Returns nth element of fibonacci series
+     * @param  int    $n
+     * @return int
+     */
     public function fibonacci(int $n) : int
     {
         for ($i=0; $i <= $n; $i++) {
@@ -150,6 +163,6 @@ class Operations
                 $result[] = $result[$i-1] + $result[$i-2];
             }
         }
-        return (int)$result[$n];
+        return $result[$n];
     }
 }
