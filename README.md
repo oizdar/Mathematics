@@ -10,4 +10,8 @@ Below List of recently resolved:
 	* Mertens Function
 	* Mobius Function (needed for Mertens)
 	* Reverse Polish notation Calulator - I assumed string is properly formatted (between each operator and operand are one or more space, with suitable number of elements and order)
+    * Factorial of n
     * Fibonacci - Returns n'th element
+* Algebra
+    * Distance Beetween 2 Points
+    * Distance Beetween 2 Points - 3 (or more dimension) each
